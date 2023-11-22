@@ -22,6 +22,6 @@ jobs:
           java-version: '17'
       # Runs a set of commands using the runners shell
       - name: execute automation feature
-        run: mvn clean test -Dcucumber.options="--tags @testScenario" 
+        run: mvn clean test -Dcucumber.filter.tags='@testScenario'
 
 
