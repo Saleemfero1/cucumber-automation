@@ -1,5 +1,6 @@
 Feature: Create Smurf aliens
-
+  
+  @testScenario
   Scenario: Create 100 smurfs
     Given No aliens exists
     When Create 50 alien with name "Mike" and type "Smurf"
