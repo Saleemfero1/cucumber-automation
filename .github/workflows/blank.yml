@@ -22,6 +22,11 @@ jobs:
           java-version: '17'
       # Runs a set of commands using the runners shell
       - name: execute automation feature
-        run: mvn clean test -Dcucumber.filter.tags='@testScenario'
+        run: mvn clean test
+      - name: upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: target
 
 
