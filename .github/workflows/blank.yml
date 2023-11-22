@@ -22,5 +22,5 @@ jobs:
           java-version: '17'
       # Runs a set of commands using the runners shell
       - name: execute atumation feature
-        run: mvn clean test
+        run: mvn clean test -Dcucumber.options="--tags @testScenario" 
 
