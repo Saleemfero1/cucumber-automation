@@ -22,7 +22,8 @@ jobs:
           java-version: '17'
       # Runs a set of commands using the runners shell
       - name: execute automation feature
-        run: mvn clean test
+        run: |
+          ./mvnw clean test
       # - name: Delay for 30 sec
       #   run: sleep 30  # 300 seconds = 5 seconds
       - name: List files in directory
