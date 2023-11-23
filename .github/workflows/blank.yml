@@ -25,10 +25,12 @@ jobs:
         run: mvn clean test
       - name: Delay for 30 sec
         run: sleep 30  # 300 seconds = 5 seconds
+      - name: List files in directory
+        run: ls -R target
       - name: upload coverage report
         uses: actions/upload-artifact@v3
         with:
           name: coverage-report
-          path: test-output/html-report
+          path: target
 
 
