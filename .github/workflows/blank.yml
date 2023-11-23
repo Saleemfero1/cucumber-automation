@@ -22,11 +22,11 @@ jobs:
           java-version: '17'
       # Runs a set of commands using the runners shell
       - name: execute automation feature
-        run: mvnw clean test
+        run: mvn clean test
       # - name: Delay for 30 sec
       #   run: sleep 30  # 300 seconds = 5 seconds
       - name: List files in directory
-        run: ls -R target
+        run: ls -R
       - name: upload coverage report
         uses: actions/upload-artifact@v3
         with:
