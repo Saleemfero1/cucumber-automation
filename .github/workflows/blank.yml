@@ -23,12 +23,12 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: execute automation feature
         run: mvn clean test
-      - name: Delay for 5 minutes
-        run: sleep 300  # 300 seconds = 5 minutes
+      - name: Delay for 30 sec
+        run: sleep 30  # 300 seconds = 5 seconds
       - name: upload coverage report
         uses: actions/upload-artifact@v3
         with:
           name: coverage-report
-          path: test-output/html-report/cucumber-report.html
+          path: test-output/html-report
 
 
