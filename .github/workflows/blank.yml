@@ -27,17 +27,12 @@ jobs:
       #   run: sleep 30  # 300 seconds = 5 seconds
       - name: List files in directory
         run: ls -R
+    
       - name: upload coverage report
-        uses: deblockt/cucumber-report-annotations-action@v1.7
+        uses: actions/upload-artifact@v3
+        if: always()
         with:
-          name: coverage-report
+          name: automation-test-artifacts
           path: test-output/cucumberReport.html
-      - name: test upload
-        uses: deblockt/cucumber-report-annotations-action@v1.7
-        with:
-          access-token: ${{ secrets.GITHUB_TOKEN }}
-          path: "**/cucumber-report.json"
-      
-          
-
-
+          if-no-files-found: error
+          retention-days: 3
