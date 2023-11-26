@@ -28,9 +28,10 @@ jobs:
       - name: List files in directory
         run: ls -R
       - name: upload coverage report
-        uses: actions/upload-artifact@v3
+      - uses: deblockt/cucumber-report-annotations-action@v1.7
         with:
           name: coverage-report
           path: test-output/cucumberReport.html
+          
 
 
