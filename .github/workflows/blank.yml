@@ -40,8 +40,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          ref: gh-pages
 
       - name: Copy HTML Report
         run: cp -R ${{ needs.build_and_run_automation.outputs.artifacts }}/cucumberReport.html .
