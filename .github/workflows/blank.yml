@@ -25,9 +25,10 @@ jobs:
         run: mvn clean test
       # - name: Delay for 30 sec
       #   run: sleep 30  # 300 seconds = 5 seconds
-      - name: List files in directory
-        run: ls -R
-    
+      # - name: List files in directory
+      #   run: ls -R
+      - name: buld with maven
+        run: mvn clean verify -Dtestng.dtd.http=true
       - name: upload coverage report
         uses: actions/upload-artifact@v3
         if: always()
