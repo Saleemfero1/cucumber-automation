@@ -21,11 +21,7 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
       - name: buld with maven
-        run: mvn clean verify -Dtestng.dtd.http=true
-      - uses: deblockt/cucumber-report-annotations-action@v1.7
-        with:
-          access-token: ${{ secrets.GITHUB_TOKEN }}
-          path: "**/cucumber-report.json"
+        run: mvn test
           
       - name: upload coverage report
         uses: actions/upload-artifact@v3
