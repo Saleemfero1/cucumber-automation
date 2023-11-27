@@ -100,6 +100,13 @@
             <artifactId>cucumber-junit-platform-engine</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
+         <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports-cucumber4-adapter -->
+         <dependency>
+             <groupId>com.aventstack</groupId>
+             <artifactId>extentreports-cucumber4-adapter</artifactId>
+             <version>1.2.0</version>
+         </dependency>
+
     </dependencies>
 
     <build>
