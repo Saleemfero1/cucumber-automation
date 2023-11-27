@@ -15,14 +15,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
           java-version: '17'
-      - name: buld with maven
+
+      - name: Execute Automation Testing
         run: mvn test
-          
+
       - name: upload coverage report
         uses: actions/upload-artifact@v3
         if: always()

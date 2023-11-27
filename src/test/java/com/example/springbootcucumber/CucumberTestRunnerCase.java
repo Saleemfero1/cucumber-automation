@@ -10,11 +10,10 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/features"},
         plugin = {
-                  "pretty", 
-                  "json:test-output/cucumberReport.json", 
-                  "html:test-output/cucumberReport.html",
-                  "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
-                 },
+                "pretty",
+                "json:test-output/cucumberReport.json",
+                "html:test-output/cucumberReport.html"
+        },
         monochrome = true,
         glue = {"com.example.springbootcucumber.cucumberglue"})
 public class CucumberTestRunnerCase {

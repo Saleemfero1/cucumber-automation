@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class SpaceShipLaunchController {
 
     @GetMapping("/counter/{lastCount}")
-    public String countDown(@PathVariable  int lastCount)
-    {
-        int nextCount = lastCount-1;
+    public String countDown(@PathVariable int lastCount) {
+        int nextCount = lastCount - 1;
         return nextCount > 0 ? "T-" + nextCount : "Launch! Go go go!";
     }
 }
