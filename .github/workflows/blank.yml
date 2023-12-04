@@ -13,16 +13,7 @@ on:
 
 jobs:
   build_and_run_automation:
-    # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-    permissions:
-       contents: read
-       pages: write
-       id-token: write
-       
-    # Allow one concurrent deployment
-    concurrency:
-       group: 'pages'
-       cancel-in-progress: true
+   
        
   
     runs-on: ubuntu-latest
@@ -47,11 +38,12 @@ jobs:
           path: test-output/cucumberReport.html
           if-no-files-found: error
           retention-days: 3
-      
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+          
+      - name: Deploy 🚀 Automation Report to Github Pages
+        id: deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: test-output
+          branch: gh-pages
+          folder: test-output
 
 
