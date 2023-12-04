@@ -20,6 +20,11 @@ concurrency:
    group: 'pages'
    cancel-in-progress: true
 
+env:
+  name: github-pages
+  url: ${{steps.deployment.outputs.page_url}}
+  
+
 jobs:
   build_and_run_automation:
     runs-on: ubuntu-latest
