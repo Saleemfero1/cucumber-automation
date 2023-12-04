@@ -30,23 +30,8 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
      
-      # - name: Execute Automation Testing
-      #   run: mvn test
-
       - name: Execute Automation Testing
-        run: |
-          # Run Maven test and capture the output
-          test_output=$(mvn test)
-
-          # Extract passed, failed, and skipped test numbers using regex
-          passed_tests=$(echo "$test_output" | grep -oP 'Tests run:.*?(\d+) passed' | awk '{print $3}')
-          failed_tests=$(echo "$test_output" | grep -oP 'Tests run:.*?(\d+) failed' | awk '{print $3}')
-          skipped_tests=$(echo "$test_output" | grep -oP 'Tests run:.*?(\d+) skipped' | awk '{print $3}')
-
-          # Set output variables
-          echo "::set-output name=passed_tests::$passed_tests"
-          echo "::set-output name=failed_tests::$failed_tests"
-          echo "::set-output name=skipped_tests::$skipped_tests"
+        run: mvn test
           
       - name: upload coverage report
         uses: actions/upload-artifact@v3
@@ -64,22 +49,6 @@ jobs:
         with:
           path: test-output
   
-  post-deployment-annotation:
-    needs: build_and_run_automation
-    runs-on: ubuntu-latest
-    steps:
-      - name: Display Test Summary
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const passedTests = process.env.INPUT_PASSED_TESTS;
-            const failedTests = process.env.INPUT_FAILED_TESTS;
-            const skippedTests = process.env.INPUT_SKIPPED_TESTS;
-
-            console.log(`Passed Tests: ${passedTests}`);
-            console.log(`Failed Tests: ${failedTests}`);
-            console.log(`Skipped Tests: ${skippedTests}`);
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
