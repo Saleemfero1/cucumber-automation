@@ -1,0 +1,21 @@
+name: automation build for master
+on:
+  pull_request:
+    branches:
+      - master
+    types: [opened, synchronize]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build_and_run_automation:
+    uses: ./.github/workflows/shared-automation-workflow.yml
+    with:
+      branch: master
+
+
+
+
+
+
