@@ -1,13 +1,12 @@
 # This is a basic workflow to trigger automation features
 name: automation test workflow
 on:
-  pull_request:
+  push:
     branches:
-      - master
-    types: [opened, synchronize, reopened]
+      - Saleemfero1-patch-1
   workflow_dispatch:
-  schedule:
-    - cron: '30 5 * * *'
+  # schedule:
+  #   - cron: '30 5 * * *'
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -26,15 +25,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: Saleemfero1-patch-1
+          
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
           java-version: '17'
-
+     
       - name: Execute Automation Testing
         run: mvn test
-
+          
       - name: upload coverage report
         uses: actions/upload-artifact@v3
         if: always()
@@ -43,14 +45,14 @@ jobs:
           path: test-output/cucumberReport.html
           if-no-files-found: error
           retention-days: 3
-
+      
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: test-output
-
+  
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
