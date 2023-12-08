@@ -1,10 +1,11 @@
 # This is a basic workflow to trigger automation features
 name: automation test workflow
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
+    types: 
+      - opened
   workflow_dispatch:
   schedule:
     - cron: '30 5 * * *'
