@@ -4,8 +4,7 @@ on:
   pull_request:
     branches:
       - master
-    types: 
-      - opened
+    types: [opened, synchronize]
   workflow_dispatch:
   schedule:
     - cron: '30 5 * * *'
