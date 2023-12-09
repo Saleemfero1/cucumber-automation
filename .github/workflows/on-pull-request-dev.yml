@@ -1,0 +1,20 @@
+name: automation build for dev
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build_and_run_automation:
+    uses: ./.github/workflows/shared-automation-workflow.yml
+    with:
+      branch: dev
+
+
+
+
+
+
