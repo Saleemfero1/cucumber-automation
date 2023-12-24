@@ -6,7 +6,7 @@ on:
     types: [opened, synchronize]
   workflow_dispatch:
   schedule:
-    - cron: '30 0 * * 1'
+    - cron: '30 0 * 0 *'
 
 jobs:
   build_and_run_automation:
